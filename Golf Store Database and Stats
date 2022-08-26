@@ -1,0 +1,22 @@
+CREATE TABLE Golf_Store (id INTEGER PRIMARY KEY, item TEXT, manufacturer TEXT, year INTEGER, price INTEGER);
+INSERT INTO Golf_Store VALUES (1, "Anser", "Ping", 1960, 500);
+INSERT INTO Golf_Store VALUES (2, "Scotty Cameron", "Titleist", 2015, 430);
+INSERT INTO Golf_Store VALUES(3, "i210 irons", "Ping", 2018, 1200);
+INSERT INTO Golf_Store VALUES (4, "M2 Driver", "Taylormade", 2020, 750);
+INSERT INTO Golf_Store VALUES (5, "Vokey", "Titleist", 2010, 180);
+INSERT INTO Golf_Store VALUES (6, "Glides", "Ping", 2015, 150);
+INSERT INTO Golf_Store VALUES (7, "Big Bertha", "Callaway", 2016, 600);
+INSERT INTO Golf_Store VALUES (8, "T100 irons", "Titleist", 2021, 1500);
+INSERT INTO Golf_Store VALUES (9, "TP5X Balls", "Taylormade", 2010, 50);
+INSERT INTO Golf_Store VALUES (10, "StaySof Glove", "Titleist", 2007, 30);
+INSERT INTO Golf_Store VALUES (11, "Hybrid", "Ping", 2016, 230);
+INSERT INTO Golf_Store VALUES (12, "G425 Driver", "Ping", 2020, 465);
+INSERT INTO Golf_Store VALUES (13, "Linkmaster", "Titleist", 2013, 300);
+INSERT INTO Golf_Store VALUES (14, "Apex", "Callaway", 2014, 520);
+INSERT INTO Golf_Store VALUES (15, "ChromeSOFT", "Callaway", 2012, 62);
+
+--display the database based on price after 2014
+SELECT * FROM Golf_Store WHERE year > 2014 ORDER BY price;
+
+--What is the average of price of products manufactured by Titleist?
+SELECT AVG(price) FROM Golf_Store WHERE manufacturer= "Titleist";
