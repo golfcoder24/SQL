@@ -1,0 +1,34 @@
+/* Create table about the people and what they do here */
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, love_interest INTEGER);
+INSERT INTO movie_stars (name, age, love_interest) VALUES ("Ryan Reynolds", "45", "4");
+INSERT INTO movie_stars (name, age, love_interest) VALUES ("Zendaya", "25", "3");
+INSERT INTO movie_stars (name, age, love_interest) VALUES ("Tom Holland", "26", "2");
+INSERT INTO movie_stars (name, age, love_interest) VALUES ("Blake Lively", "35", "1");
+
+
+CREATE TABLE hobbies (person_id INTEGER, hobby TEXT);
+INSERT INTO hobbies (person_id, hobby) VALUES ("1", "ping pong");
+INSERT INTO hobbies (person_id, hobby) VALUES ("2", "bowling");
+INSERT INTO hobbies (person_id, hobby) VALUES ("3", "skateboarding");
+INSERT INTO hobbies (person_id, hobby) VALUES ("4", "golf");
+INSERT INTO hobbies (person_id, hobby) VALUES ("2", "swimming");
+INSERT INTO hobbies (person_id, hobby) VALUES ("3", "painting");
+CREATE TABLE movies (actor_id INTEGER, movie TEXT);
+INSERT INTO movies (actor_id, movie) VALUES ("4", "The Shallows");
+INSERT INTO movies (actor_id, movie) VALUES ("1", "Deadpool");
+INSERT INTO movies (actor_id, movie) VALUES ("2", "Spiderman");
+INSERT INTO movies (actor_id, movie) VALUES ("3", "Spiderman");
+INSERT INTO movies (actor_id, movie) VALUES ("3", "Uncharted");
+
+
+--What hobbies do movie stars have?
+SELECT name, hobby FROM movie_stars  JOIN hobbies ON movie_stars.id = hobbies.person_id ORDER BY name;
+
+--Which movie stars date each other?
+SELECT movie_stars.name, a.name AS partner FROM movie_stars JOIN movie_stars a ON movie_stars.id = a.love_interest ;
+
+--Join 3 tables that show the movie star, his or her hobby, and what movie they are in.
+SELECT name, hobby, movie FROM movie_stars LEFT JOIN hobbies ON movie_stars.id = hobbies.person_id
+JOIN movies ON movies.actor_id = movie_stars.id ORDER BY name;
+
+
